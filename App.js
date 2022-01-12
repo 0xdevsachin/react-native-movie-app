@@ -5,16 +5,24 @@ import Header from "./src/components/header/header";
 import Poster from "./src/components/poster/poster";
 import requests from "./src/requests";
 import axios from "axios";
+import Genere from "./src/components/Genere/genere";
 const App = () =>{
+  const [genere, setGenere] = useState([])
+  // const genere = ['Action', 'Comedy', 'Horror', 'Romance', 'Documentaries']
   const[data, setData] = useState([])
   useEffect(() =>{
      const fetchData = async () =>{
       await axios.get(`${requests.baseUrl}${requests.fetchTrending}`)
       .then((res) =>{
         setData(res.data.results)
-        return;
       })
       .catch((err) => console.log(err))
+      await axios.get(`${requests.baseUrl}${requests.genereList}`)
+      .then((res) =>{
+        console.log("REsponse data")
+        console.log(res.data.genres)
+        setGenere(res.data.genres)
+      })
      }
      fetchData()
   }, [])
@@ -30,12 +38,20 @@ const App = () =>{
      {
        data.map(item =>{
         //  console.log(`https://image.tmdb.org/t/p/original/${item.backdrop_path}`)
-         return <Poster key={item.title} link={`${requests.imageUrl}${item.poster_path}`} />
+         return <Poster title={item.title} link={`${requests.imageUrl}${item.poster_path}`} />
        })
      }
      </ScrollView>
      </View>
-     <Poster />
+     <View>
+       <Text style={styles.text}>Best Genre</Text>
+       <ScrollView horizontal={true}>
+         {
+           genere.map(item => <Genere title={item.name} /> ) 
+         }
+       </ScrollView>
+     </View>
+     
     </ScrollView>
     </View>
   )

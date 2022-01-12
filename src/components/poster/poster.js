@@ -2,9 +2,9 @@ import React from "react";
 
 import { Text, View, StyleSheet, Image } from "react-native";
 
-const Poster = ({ link }) =>{
+const Poster = ({ link, title }) =>{
     return (
-        <View style={style.container}>
+        <View style={style.container} key={title}>
             <Image 
              style={style.image}
              source={{uri: link}}
