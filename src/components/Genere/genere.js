@@ -2,9 +2,13 @@ import React from "react";
 
 import { Text, View, StyleSheet } from "react-native";
 
-const Genere = ({title}) =>{
+const Genere = ({title, navigation}) =>{
     return (
-        <View style={styles.container}>
+        <View onTouchEnd={() => {
+            navigation.navigate('Genere', {
+                title : title
+            })
+        }} style={styles.container}>
             <Text style={styles.text}>{title}</Text>
         </View>
     )
