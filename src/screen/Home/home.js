@@ -16,7 +16,6 @@ const HomeScreen = ({ navigation }) => {
         .get(`${requests.baseUrl}${requests.fetchTrending}`)
         .then(res => {
           setData(res.data.results);
-          console.log(res.data.results)
         })
         .catch(err => console.log(err));
     };
