@@ -4,31 +4,26 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Text, View } from 'react-native';
 import Detail from './src/screen/Detail/detail';
+import Movie from './src/screen/Movie/movie';
 const Stack = createNativeStackNavigator();
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs([
+ 'Non-serializable values were found in the navigation state',
+]);
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options={{
-          title: 'Home',
-          headerStyle: {
-            backgroundColor: '#1b212f',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerShown : false,
         }} name="Home" component={HomeScreen} />
         <Stack.Screen options={{
-          headerStyle: {
-            backgroundColor: '#1b212f',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerShown : false,
         }} name="Genere" component={Detail} />
+        <Stack.Screen options={{
+        headerShown : false,
+        }} name="Movie" component={Movie} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -6,7 +6,8 @@ const Genere = ({title, navigation}) =>{
     return (
         <View onTouchEnd={() => {
             navigation.navigate('Genere', {
-                title : title
+                title : title,
+                navigation : navigation
             })
         }} style={styles.container}>
             <Text style={styles.text}>{title}</Text>

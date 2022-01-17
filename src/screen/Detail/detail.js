@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert} from 'react-native';
 import requests from '../../requests';
 import axios from 'axios';
-function Detail({route}) {
+function Detail({route, navigation}) {
   var genereList = {
     Action: requests.fetchActionMovies,
     Comedy: requests.fetchComedyMovies,
@@ -33,7 +33,13 @@ function Detail({route}) {
         <View>
           {data.map(item => {
             return (
-              <TouchableOpacity onPress={() => Alert.alert("Warning!", "Don't Touch it")} key={item.id} style={styles.view}>
+              <TouchableOpacity onPress={() => navigation.navigate('Movie', {
+                  img : item.poster_path,
+                  title : !item.original_title ? item.name : item.original_title,
+                  content : item.overview,
+                  release : item.release_date,
+                  vote : item.vote_average
+              })} key={item.id} style={styles.view}>
                 <Text style={{color : '#fff'}}>
                   {!item.original_title ? item.name : item.original_title}
                 </Text>
