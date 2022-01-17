@@ -8,7 +8,7 @@ import axios from 'axios';
 import Genre from '../../components/Genre/genre';
 
 const HomeScreen = ({ navigation }) => {
-  const genere = ['Action', 'Comedy', 'Anime', 'Documentary', 'Horror', 'Romance', 'Netflix', 'TopRated']
+  const genere = ['Action', 'Anime', 'Comedy', 'Documentary', 'Horror', 'Romance', 'Netflix', 'TopRated']
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
