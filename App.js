@@ -19,8 +19,6 @@ const App = () =>{
       .catch((err) => console.log(err))
       await axios.get(`${requests.baseUrl}${requests.genereList}`)
       .then((res) =>{
-        console.log("REsponse data")
-        console.log(res.data.genres)
         setGenere(res.data.genres)
       })
      }
@@ -37,17 +35,16 @@ const App = () =>{
        <ScrollView horizontal={true}>
      {
        data.map(item =>{
-        //  console.log(`https://image.tmdb.org/t/p/original/${item.backdrop_path}`)
-         return <Poster title={item.title} link={`${requests.imageUrl}${item.poster_path}`} />
+         return <Poster title={item.title} key={item.id} link={`${requests.imageUrl}${item.poster_path}`} />
        })
      }
      </ScrollView>
      </View>
-     <View>
+     <View style={styles.genere}>
        <Text style={styles.text}>Best Genre</Text>
        <ScrollView horizontal={true}>
          {
-           genere.map(item => <Genere title={item.name} /> ) 
+           genere.map(item => <Genere key={item.name} title={item.name} /> ) 
          }
        </ScrollView>
      </View>
@@ -76,5 +73,8 @@ const styles = StyleSheet.create({
     paddingLeft : 20,
     fontSize : 25,
     marginTop : 15
+  },
+  genere : {
+    marginBottom : 20
   }
 })
