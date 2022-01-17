@@ -5,10 +5,10 @@ import Header from '../../components/header/header';
 import Poster from '../../components/poster/poster'
 import requests from '../../requests'
 import axios from 'axios';
-import Genere from '../../components/Genere/genere';
+import Genre from '../../components/Genre/genre';
 
 const HomeScreen = ({ navigation }) => {
-  const genere = ['Action', 'Comedy', 'Documentary', 'Horror', 'Romance', 'Netflix', 'TopRated']
+  const genere = ['Action', 'Comedy', 'Anime', 'Documentary', 'Horror', 'Romance', 'Netflix', 'TopRated']
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +16,7 @@ const HomeScreen = ({ navigation }) => {
         .get(`${requests.baseUrl}${requests.fetchTrending}`)
         .then(res => {
           setData(res.data.results);
+          console.log(res.data.results)
         })
         .catch(err => console.log(err));
     };
@@ -46,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.text}>Best Genre</Text>
           <ScrollView horizontal={true}>
             {genere.map(item => (
-              <Genere key={item} navigation={navigation} title={item} />
+              <Genre key={item} navigation={navigation} title={item} />
             ))}
           </ScrollView>
         </View>

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Text, View, StyleSheet } from "react-native";
 
-const Genere = ({title, navigation}) =>{
+const Genre = ({title, navigation}) =>{
     return (
         <View onTouchEnd={() => {
             navigation.navigate('Genere', {
@@ -16,7 +16,7 @@ const Genere = ({title, navigation}) =>{
 }
 
 
-export default Genere;
+export default Genre;
 
 
 const styles = StyleSheet.create({

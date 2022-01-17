@@ -11,6 +11,7 @@ function Detail({route, navigation}) {
     Romance: requests.fetchRomanceMovies,
     Netflix: requests.fetchNetflixOriginals,
     TopRated: requests.fetchTopRated,
+    Anime : requests.fetchAnime
   };
   const [data, setData] = useState([]);
   const title = route.params.title;
