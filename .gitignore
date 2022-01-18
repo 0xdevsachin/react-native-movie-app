@@ -60,4 +60,4 @@ buck-out/
 /ios/Pods/
 
 // Contain API Keys
-requests.js
+apikey.js
