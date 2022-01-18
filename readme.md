@@ -11,9 +11,7 @@ React Native Movie App
 
 # Home Screen 
 
-<p align='center'>
-    <img src="./src/assets/home01.png" width="250px">
-</p>
+<img src="./src/assets/home01.png" width="250px">
 
 <br />
 <br />
@@ -22,9 +20,9 @@ React Native Movie App
 
 <br />
 
-<p align='center'>
-    <img src="./src/assets/home02.png" width="250px">
-</p>
+
+<img src="./src/assets/home02.png" width="250px">
+
 
 
 <br />
@@ -34,9 +32,9 @@ React Native Movie App
 
 <br />
 
-<p align='center'>
-    <img src="./src/assets/genre.png" width="250px">
-</p>
+
+<img src="./src/assets/genre.png" width="250px">
+
 
 
 <br />
@@ -46,9 +44,9 @@ React Native Movie App
 
 <br />
 
-<p align='center'>
-    <img src="./src/assets/movie.png" width="250px">
-</p>
+
+<img src="./src/assets/movie.png" width="250px">
+
 
 
 <br />
